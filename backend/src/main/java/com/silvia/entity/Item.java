@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Positive;
 @Entity
 @Table(name ="items")
 @Getter @Setter
+@NoArgsConstructor
 public class Item {
     @Id
     @GeneratedValue
@@ -19,6 +20,7 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "item_category")
+    @NotNull(message = "Pick a category for the item")
     private Category category;
 
     @Column(name = "item_name")
