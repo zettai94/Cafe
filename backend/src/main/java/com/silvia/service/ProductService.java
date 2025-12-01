@@ -72,10 +72,13 @@ public class ProductService implements ProductServiceInterface{
     }
 
     @Override
-    public void deleteProduct(Long id)
+    public void deleteProduct(Long id) throws ProductIDNotFoundException
     {
         Optional<Product> existing = productRepo.findByProductId(id);
-                            //.orElseThrow(new ProductIDNotFoundException(id));
+        if(existing.isEmpty())
+        {
+            throw new ProductIDNotFoundException(id);
+        }
         productRepo.deleteById(id);
     }
 
