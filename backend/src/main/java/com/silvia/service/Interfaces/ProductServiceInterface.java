@@ -1,7 +1,6 @@
 package com.silvia.service.interfaces;
 
 import java.util.List;
-import java.util.Optional;
 import com.silvia.entity.Product;
 import com.silvia.dto.CreateProductResponse;
 

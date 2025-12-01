@@ -1,15 +1,18 @@
 package com.silvia.service;
 
+import com.silvia.dto.CreateProductResponse;
 import com.silvia.entity.Product;
 import com.silvia.repository.ProductRepo;
 import com.silvia.service.interfaces.ProductServiceInterface;
 import com.silvia.exceptions.ProductIDNotFoundException;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
-public class ProductService implements ProductInterface{
+public class ProductService implements ProductServiceInterface{
 
     private final ProductRepo productRepo;
 
@@ -21,7 +24,7 @@ public class ProductService implements ProductInterface{
     @Override
     public Product getProductById(Long id)
     {
-        return productRepo.findByProductId(id).orElseThrow(()-> new ProductIDNotFoundException(id));
+        return productRepo.findByProductId(id).orElse(null);//orElseThrow(new ProductIDNotFoundException(id));
     }
 
     @Override
@@ -60,7 +63,8 @@ public class ProductService implements ProductInterface{
     @Override
     public Product updateProduct(Long id, Product product)
     {
-        Product existing = productRepo.findByProductId(id).orElseThrow(()-> new ProductIDNotFoundException(id));
+        Product existing = productRepo.findByProductId(id)
+                            .orElseThrow(()-> new ProductIDNotFoundException(id));
         existing.setCategory(product.getCategory());
         existing.setProductName(product.getProductName());
         existing.setProductPrice(product.getProductPrice());
@@ -70,8 +74,8 @@ public class ProductService implements ProductInterface{
     @Override
     public void deleteProduct(Long id)
     {
-        Product existing = productRepo.findByProductId(id)
-                            .orElseThrow(() -> new ProductIDNotFoundException(id));
+        Optional<Product> existing = productRepo.findByProductId(id);
+                            //.orElseThrow(new ProductIDNotFoundException(id));
         productRepo.deleteById(id);
     }
 

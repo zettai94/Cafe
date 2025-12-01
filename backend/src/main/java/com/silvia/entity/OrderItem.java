@@ -21,7 +21,7 @@ public class OrderItem {
     private Order order;
 
     @ManyToOne
-    private Item item;
+    private Product product;
 
     @Column(name= "order_item_qty")
     @Positive(message = "Order quantity must be positive")

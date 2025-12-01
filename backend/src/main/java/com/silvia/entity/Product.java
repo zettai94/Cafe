@@ -4,6 +4,7 @@ import com.silvia.model.Category;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -53,5 +54,6 @@ public class Product {
             inventory.setProduct(this);
         }
     }
+
     
 }
