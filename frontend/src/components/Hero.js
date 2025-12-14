@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Hero() {
     return(
         <header className='header p-5'>
             <div className='header-content'>
@@ -9,10 +9,10 @@ function Header() {
                     {/* Text column */}
                     <div className="col-md text-start">
                         <h1 className="display-6 fw-bold">
-                            Welcome to IndieBites Cafe
+                            Welcome to Indie Bites
                         </h1>
                         <p className="lead p-1">
-                            Meticulously crafted coffee, fresh bites, and a seamless ordering experience.
+                            Serving homemade baked goods and specialty coffee with love and care. Order online for pickup or delivery!
                         </p>
                     </div>
 
@@ -28,4 +28,4 @@ function Header() {
     );
 }
 
-export default Header; 
+export default Hero; 
