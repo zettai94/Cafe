@@ -12,20 +12,16 @@ body {
   color: var(--text-dark);
 }
 
-header {
+/* Scrollbar styling */
+::-webkit-scrollbar {
   background: #4f684c;
-  color: white;
+  width: 12px;
 }
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-}
-
-header p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#32492f, #9cd196, #ffffff);
+  border-radius: 6px;
+  
 }
 
 .navbar {
@@ -36,18 +32,48 @@ header p {
 .navbar a {
   color:white;
 }
+
 .navbar a:hover {
   color: #9cd196;
 }
 
+.header {
+  background: #4f684c;
+  color: white;
+  
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+}
+
+.header p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.header-image-placeholder {
+  width: 100%;
+  max-width: 450px;
+  height: 460px;
+  background: rgb(231, 169, 98);
+  margin-left: auto;
+  margin-right:auto;
+  border-radius: 12px;
+}
+
+
 .features {
   padding: 70px 0;
   text-align: center;
+
 }
 
 .features-grid {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -57,5 +83,4 @@ header p {
   flex: 1;
   padding: 20px;
   position: relative;
-  
 }

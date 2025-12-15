@@ -7,7 +7,7 @@ function Hero() {
                 <div className="row align-items-center">
 
                     {/* Text column */}
-                    <div className="col-md text-start">
+                    <div className="col-md text-start p-5">
                         <h1 className="display-6 fw-bold">
                             Welcome to Indie Bites
                         </h1>
