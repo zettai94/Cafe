@@ -19,7 +19,7 @@ function Hero() {
                     {/* Image column */}
                     <div className="col-md-6 text-center">
                         <div className="header-image-placeholder">
-                            <img src='#' alt='insert image for later' className='img-fluid rounded'/>
+                            <img src='../images/orange_swissroll.png' alt='orange swissroll and cranberry scones' className='img-fluid rounded'/>
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeatureCard from './components/Features/FeatureCard';
 import Gallery from './components/Gallery';
-import Menu from './components/Menu';
+import MenuCard from './components/Menu/MenuCard';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -14,7 +14,7 @@ function App() {
       <Hero />
       <FeatureCard />
       <Gallery />
-      <Menu />
+      <MenuCard />
       <Contact />
       <Footer />
     </>
