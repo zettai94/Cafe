@@ -13,7 +13,7 @@ export const menu = [
   },
   {
     picture: '../images/smoresChocolatePie.png',
-    title: "Smores Chocolate Pie",
+    title: "Smore's Chocolate Pie",
     description: "something",
   },
   {

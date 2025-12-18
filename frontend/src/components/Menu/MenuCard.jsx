@@ -61,7 +61,7 @@ export default function MenuCard() {
                                     transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
                         >
                             {menu.map((item, index) => (
-                                <div key={item.title || index} className="menu-item">
+                                <div key={item.title || index} className="menu-card">
                                     <div className="menu-image-container text-center">
                                         <img src={item.picture} alt={item.title} className="img-fluid rounded mb-3"/>
                                         <div className="menu-image-text">
