@@ -2,7 +2,7 @@ import React from 'react';
 
 function Navbar() {
     return(
-        <nav className='navbar navbar-expand-md sticky-top'>
+        <nav className='navbar navbar-expand-md fixed-top'>
             <div className='container'>
                 {/* Brand */}
                 <a className='navbar-brand' href='#home'>Indie Bites</a>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Hero() {
     return(
-        <header className='header py-5'>
+        <header className='header py-4 mt-5'>
             <div className='container'>
                 <div className="row align-items-center">
 
