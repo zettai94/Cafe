@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { menu, coffee, non_coffee, baked } from "./Menu";
 
 export default function MenuCard() { 
    
         const [startIndex, setStartIndex] = useState(0);
-        const ITEM_PER_PAGE= 3;
+        const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth < 768 ? 1 : 3);
         const TOTAL_ITEMS = menu.length;
 
-        const slideOffset = (startIndex / ITEM_PER_PAGE) * 100;
+        useEffect(() => {
+            const handleResize = () => {
+                setItemsPerPage(window.innerWidth < 768 ? 1 : 3);
+            };
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }, []);
+
+        const slideOffset = (startIndex / itemsPerPage) * 100;
         const handleNext= () => {
-            const nextIndex = startIndex + ITEM_PER_PAGE;
-            if(nextIndex < TOTAL_ITEMS) {
-                setStartIndex(nextIndex);
-            }
-            else if (startIndex +1 < TOTAL_ITEMS) {
-                setStartIndex(TOTAL_ITEMS - ITEM_PER_PAGE);
-            }
+            setStartIndex((startIndex + itemsPerPage) % TOTAL_ITEMS);
         }; 
 
         const handlePrev = () => {
-            const prevIndex = startIndex - ITEM_PER_PAGE;
+            const prevIndex = startIndex - itemsPerPage;
             if(prevIndex >= 0) {
                 setStartIndex(prevIndex);
             }
             else {
-                setStartIndex(0);
+                setStartIndex(TOTAL_ITEMS - itemsPerPage);
             }
         };
-
-        const isPreviousDisabled = startIndex === 0;
-        const isNextDisabled = startIndex + ITEM_PER_PAGE >= TOTAL_ITEMS;
         
         const fullMenu = [...coffee, ...non_coffee, ...baked];
 
@@ -41,14 +42,8 @@ export default function MenuCard() {
                         {/* Navigation next/prev */}
                         <div className="menu-slider-wrapper">
                             <div className="slider-controls">
-                                <button onClick={handlePrev} disabled={isPreviousDisabled}>
-                                    Prev
-                                </button>
-                            </div>
-                            <div className="slider-controls">
-                                <button onClick={handleNext} disabled={isNextDisabled}>
-                                    Next
-                                </button>
+                                <button onClick={handlePrev}>Prev</button>
+                                <button onClick={handleNext}>Next</button>
                             </div>
                         </div>
                     </div>
@@ -59,8 +54,7 @@ export default function MenuCard() {
                             className="menu-slider-track"
                             style={{ transform: `translateX(-${slideOffset}%)`, 
                                         display: 'flex',
-                                        gap: '20px',
-                                    transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
+                                        transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
                         >
                             {menu.map((item, index) => (
                                 <div key={item.title || index} className="menu-card">
@@ -77,11 +71,12 @@ export default function MenuCard() {
                         </div>
                     </div>
             </div>
-            
-            <br></br>
+
+            <br />
 
             {/* menu lists */}
-            {fullMenu.map((category, index) => (
+           <div className="menu-list-container">
+             {fullMenu.map((category, index) => (
                 <div key={index} className="menu-list-section">
                     
                     {/* Left/Right Column: Menu Text */}
@@ -91,23 +86,12 @@ export default function MenuCard() {
                         </div>
 
                         <div className="menu-list-content">
-                            {/* Items Column - Aligned Left */}
-                            <div className="menu-list-items">
-                                {category.items.map((item, i) => (
-                                    <div key={i} className="menu-item-name">
-                                        {item.name}
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Prices Column - Aligned Right */}
-                            <div className="menu-list-prices">
-                                {category.items.map((item, i) => (
-                                    <div key={i} className="menu-item-price">
-                                        {item.price}
-                                    </div>
-                                ))}
-                            </div>
+                            {category.items.map((item, i) => (
+                                <div key={i} className="menu-item-row">
+                                    <span className="menu-item-name">{item.name}</span>
+                                    <span className="menu-item-price">{item.price}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
@@ -120,6 +104,7 @@ export default function MenuCard() {
 
                 </div>
             ))}
+           </div>
                 
 
                     
