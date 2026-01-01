@@ -35,19 +35,19 @@ export default function Contact() {
                 <div className="contact-form">
                     <h2>Get in Touch</h2>
                     <form className="form-grid">
-                        <div className="input-group">
+                        <div className="form-group-wrapper">
                             <label>Name:</label>
                             <input type="text" placeholder="Your Name" />
                         </div>
-                        <div className="input-group">
+                        <div className="form-group-wrapper">
                             <label>Email:</label>
                             <input type="email" placeholder="Your Email" />
                         </div>
-                        <div className="input-group">
+                        <div className="form-group-wrapper">
                             <label>Subject:</label>
                             <input type="text" placeholder="Subject" />
                         </div>
-                        <div className="input-group">
+                        <div className="form-group-wrapper">
                             <label>Message:</label>
                             <textarea placeholder="Enter your message here"></textarea>
                         </div>
