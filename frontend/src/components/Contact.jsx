@@ -51,6 +51,7 @@ export default function Contact() {
                             <label>Message:</label>
                             <textarea placeholder="Enter your message here"></textarea>
                         </div>
+                        <button type="submit" className ="btn-submit">Send Message</button>
                     </form>
                 </div>
             </div>

@@ -23,6 +23,7 @@ img {
   --primary-color: #32492f;
   --header-color: #4f684c;
   --secondary-color: #9cd196;
+  --button-color1: #a0793d;
 }
 
 body {
@@ -389,6 +390,18 @@ body {
   box-sizing: border-box;
   border-radius: 12px;
   appearance: none;
+  border: 1px solid #ccc;
+}
+
+.btn-submit {
+  background-color: var(--button-color1);
+  color: var(--text-light);
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 @media(min-width: 768px) {
