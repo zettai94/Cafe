@@ -122,11 +122,19 @@ section{
   height: 100%;
 }
 
+.feature-icon {
+  font-size: 2rem;
+  color: var(--header-color);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .feature-title h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   color: var(--primary-color);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .feature-description p {
