@@ -42,8 +42,12 @@ export default function MenuCard() {
                         {/* Navigation next/prev */}
                         <div className="menu-slider-wrapper">
                             <div className="slider-controls">
-                                <button onClick={handlePrev}>Prev</button>
-                                <button onClick={handleNext}>Next</button>
+                                <button onClick={handlePrev} className="btn-prevNext">
+                                    <ion-icon name="chevron-back-outline"></ion-icon>
+                                </button>
+                                <button onClick={handleNext} className="btn-prevNext">
+                                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -188,18 +188,36 @@ section{
   box-sizing: border-box;
 
  }
- @media(min-width: 768px) {
-  .menu-card {
-    flex: 0 0 33.33%;
-  }
-
-  
- }
+ 
 .menu-card:hover{
   transform: scale(1.03);
   transition: transform 0.3s ease;
 }
 
+.slider-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-prevNext {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: var(--header-color);
+}
+.btn-prevNext:hover {
+  color: var(--button-color1);
+  transform: scale(1.2);
+}
+
+.btn-prevNext ion-icon {
+  font-size: 1.5rem;
+}
 
 /* MENU LIST WITH PRICES*/
 .menu-image-container {
@@ -248,30 +266,12 @@ section{
   padding: 8px 0;
   border-bottom: 1px dotted #ccc;
 }
-@media(min-width: 768px) {
-  .menu-list-section {
-    flex-direction: row;
-    align-items: center;
-    gap: 60px;
-  }
-
-  /* FLIP EACH ROW OF MENULIST */
-.menu-list-section:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.menu-list, .menu-list-pic {
-  flex: 1;
-}
-}
-
 
 /* MENU LIST AND PIC EVEN SIZING */
 .menu-list-header {
     border-bottom: #9cd196 double; 
     margin-bottom: 15px;
     padding-bottom: 10px;
-
 }
 
 .menu-list-header h2 {
@@ -290,6 +290,10 @@ section{
 }
 
 @media (min-width: 768px) {
+    .menu-card {
+      flex: 0 0 33.33%;
+    }
+
     .menu-list-section {
         flex-direction: row;
         align-items: center; 
