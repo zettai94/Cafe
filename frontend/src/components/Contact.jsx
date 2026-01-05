@@ -35,6 +35,7 @@ export default function Contact() {
                         </iframe>
                     </div>
                 </div>
+                
                 {/* Right side contact form */}
                 <div className="contact-form">
                     <h2>Get in Touch</h2>

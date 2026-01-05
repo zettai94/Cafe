@@ -140,7 +140,8 @@ section{
 .feature-description p {
   margin-bottom: 0;
   line-height: 1.5;
-  word-wrap: break-word
+  word-wrap: break-word;
+  text-align: center;
 }
 
 
