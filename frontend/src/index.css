@@ -45,7 +45,7 @@ section{
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   background: var(--header-color);
-  width: 12px;
+  width: 10px;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--primary-color), var(--secondary-color), #ffffff);
