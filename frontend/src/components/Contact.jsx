@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_6q362zw', 'template_ns4p03d', form.current, 'FPvbOlDCA79XtmlBe')
+        .then(() => {
+            alert("Message was sent successfully!");
+            e.target.reset(); //this will clear the form after submission
+        }, (error) => {
+            alert("Something went wrong. Error: "+ error.text);
+        });
+    };
+
     return(
         <section id="contact"className="contact container">
             <div className="contact-header">
@@ -35,26 +49,26 @@ export default function Contact() {
                         </iframe>
                     </div>
                 </div>
-                
+
                 {/* Right side contact form */}
                 <div className="contact-form">
                     <h2>Get in Touch</h2>
-                    <form className="form-grid">
+                    <form ref={form} onSubmit={sendEmail} className="form-grid">
                         <div className="form-group-wrapper">
                             <label>Name:</label>
-                            <input type="text" placeholder="Your Name" />
+                            <input type="text" name="from_name" placeholder="Your Name" required/>
                         </div>
                         <div className="form-group-wrapper">
                             <label>Email:</label>
-                            <input type="email" placeholder="Your Email" />
+                            <input type="email" name="user_email" placeholder="Your Email" required/>
                         </div>
                         <div className="form-group-wrapper">
                             <label>Subject:</label>
-                            <input type="text" placeholder="Subject" />
+                            <input type="text" name="subject" placeholder="Subject" required/>
                         </div>
                         <div className="form-group-wrapper">
                             <label>Message:</label>
-                            <textarea placeholder="Enter your message here"></textarea>
+                            <textarea name="message" placeholder="Enter your message here" required></textarea>
                         </div>
                         <button type="submit" className ="btn-submit">Send Message</button>
                     </form>
