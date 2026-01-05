@@ -1,11 +1,16 @@
 import React from 'react';
 
 function Navbar() {
+    const backToTop = (e) => {
+        e.preventDefault(); //prevent # from appearing in URL
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return(
         <nav className='navbar navbar-expand-md fixed-top'>
             <div className='container'>
                 {/* Brand */}
-                <a className='navbar-brand' href='#home'>Indie Bites</a>
+                <a className='navbar-brand' href='/' onClick={backToTop}>Indie Bites</a>
             
                 {/* Mobile toggle button */}
                 <button
@@ -25,7 +30,7 @@ function Navbar() {
                 <ul className="navbar-nav ms-auto">
 
                     <li className="nav-item">
-                    <a className="nav-link" href="#home">Home</a>
+                    <a className="nav-link" href="/" onClick={backToTop}>Home</a>
                     </li>
 
                     <li className="nav-item">
