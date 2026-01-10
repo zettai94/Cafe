@@ -73,6 +73,60 @@ section{
 .navbar .nav-link:active {
   color: var(--secondary-color);
 }
+  /* desktop spacing for Navbar*/
+@media (min-width: 768px) {
+    .navbar .container {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100%;
+        padding: 0 0; /*make it look like it encloses rest of content*/
+    }
+
+    /* Force the collapsible div to NOT take up full width so it can be centered */
+    .navbar-collapse {
+        flex-grow: 0; 
+    }
+
+    .navbar-nav {
+        gap: 15px;
+    }
+    
+    /* Ensures the Order Button wrapper doesn't shrink */
+    .nav-order-wrapper {
+        min-width: 150px;
+        justify-content: flex-end;
+    }
+    
+    /* Ensures the Brand stays on the left */
+    .navbar-brand {
+        min-width: 150px;
+    }
+}
+
+/* Mobile Styling */
+@media (max-width: 767px) {
+    /* Keeps the Brand and Button on the same line if they fit */
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    /* Styles the mobile dropdown menu */
+    .navbar-collapse {
+        order: 3; /* Pushes the menu items below the Brand/Button/Toggler */
+        width: 100%;
+        text-align: center;
+        background: var(--header-color);
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .nav-order-btn {
+        padding: 5px 12px;
+        font-size: 0.9rem;
+    }
+}
+
 
 /* HEADER/BANNER */
 .header {
@@ -531,7 +585,9 @@ section{
   border: 1px solid #ccc;
 }
 
-.btn-submit {
+.btn-submit,
+/* order button here too*/
+.order-btn {
   background-color: var(--button-color1);
   color: var(--text-light);
   padding: 12px 18px;
@@ -574,3 +630,17 @@ section{
 }
 
 
+/* ORDER BUTTON */
+.nav-order-btn {
+  padding: 5px 15px;
+}
+
+.footer-order-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--text-dark);
+}
+.footer-order-btn:hover {
+  color: var(--text-light);
+  text-decoration: underline;
+}

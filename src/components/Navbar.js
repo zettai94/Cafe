@@ -1,4 +1,5 @@
 import React from 'react';
+import OrderButton from './OrderButton';
 
 function Navbar() {
     const backToTop = (e) => {
@@ -8,7 +9,7 @@ function Navbar() {
 
     return(
         <nav className='navbar navbar-expand-md fixed-top'>
-            <div className='container'>
+            <div className='container d-flex justify-content-between align-items-center'>
                 {/* Brand */}
                 <a className='navbar-brand' href='/' onClick={backToTop}>Indie Bites</a>
             
@@ -26,32 +27,33 @@ function Navbar() {
                 </button>
 
                 {/* Collapsible menu */}
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ms-auto">
+                <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul className="navbar-nav">
 
-                    <li className="nav-item">
-                    <a className="nav-link" href="/" onClick={backToTop}>Home</a>
-                    </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="/" onClick={backToTop}>Home</a>
+                        </li>
 
-                    <li className="nav-item">
-                    <a className="nav-link" href="#features">About</a>
-                    </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#features">About</a>
+                        </li>
 
-                    <li className="nav-item">
-                    <a className="nav-link" href="#menu">Menu</a>
-                    </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#menu">Menu</a>
+                        </li>
 
-                    <li className="nav-item">
-                    <a className="nav-link" href="#gallery">Gallery</a>
-                    </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#gallery">Gallery</a>
+                        </li>
 
-                    <li className="nav-item">
-                    <a className="nav-link" href="#contact">Contact</a>
-                    </li>
-
-                </ul>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-
+                <div className="d-flex nav-order-wrapper">
+                    <OrderButton variant="nav-order-btn" text="Order Here"/>
+                </div>
             </div>
         </nav>
     );
