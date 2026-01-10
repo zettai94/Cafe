@@ -9,7 +9,7 @@ function Navbar() {
 
     return(
         <nav className='navbar navbar-expand-md fixed-top'>
-            <div className='container d-flex justify-content-between align-items-center'>
+            <div className='container'>
                 {/* Brand */}
                 <a className='navbar-brand' href='/' onClick={backToTop}>Indie Bites</a>
             
@@ -51,7 +51,7 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="d-flex nav-order-wrapper">
+                <div className="nav-order-wrapper">
                     <OrderButton variant="nav-order-btn" text="Order Here"/>
                 </div>
             </div>

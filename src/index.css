@@ -73,12 +73,14 @@ section{
 .navbar .nav-link:active {
   color: var(--secondary-color);
 }
+
+
   /* desktop spacing for Navbar*/
 @media (min-width: 768px) {
     .navbar .container {
         display: flex !important;
         justify-content: space-between !important;
-        width: 100%;
+        align-items: center !important;
         padding: 0 0; /*make it look like it encloses rest of content*/
     }
 
@@ -90,18 +92,20 @@ section{
     .navbar-nav {
         gap: 15px;
     }
-    
-    /* Ensures the Order Button wrapper doesn't shrink */
-    .nav-order-wrapper {
-        min-width: 150px;
-        justify-content: flex-end;
+
+    .nav-order-wrapper .nav-order-btn {
+        margin: 0 !important;         
+        padding-top: 8px !important;    /* Equalize internal spacing */
+        padding-bottom: 8px !important;
+        align-self: center !important;  /* Force it to center itself in the red box */
+        line-height: 1 !important;      /* Stop text-line height from pushing the box down */
     }
     
     /* Ensures the Brand stays on the left */
     .navbar-brand {
         min-width: 150px;
     }
-}
+  }
 
 /* Mobile Styling */
 @media (max-width: 767px) {
@@ -642,7 +646,7 @@ section{
 
 /* ORDER BUTTON with different variants */
 .nav-order-btn {
-  padding: 5px 15px;
+      padding: 5px 15px;
 }
 
 .footer-order-btn {
